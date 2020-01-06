@@ -1,5 +1,7 @@
 package gopoe
 
+import "regexp"
+
 // Item is a description of all properties of a single item.
 type Item struct {
 	IsVerified          bool `json:"verified"`
@@ -135,4 +137,3 @@ func (item *Item) cleanItem() {
 	nameRegex, _ := regexp.Compile("^.*>>")
 	item.Name = nameRegex.ReplaceAllString(item.Name, "")
 }
-
