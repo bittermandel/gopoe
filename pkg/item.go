@@ -130,3 +130,9 @@ type IncubatedItemType struct {
 	Progress int    `json:"progress"`
 	Total    int    `json:"total"`
 }
+
+func (item *Item) cleanItem() {
+	nameRegex, _ := regexp.Compile("^.*>>")
+	item.Name = nameRegex.ReplaceAllString(item.Name, "")
+}
+
